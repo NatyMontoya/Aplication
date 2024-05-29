@@ -7,10 +7,10 @@
 </head>
 <body>
     
-<form action="{{ url ('/') }}" method="post">
-@csrf
+<form action="" method="post">
+
 <input type="text" name="task" id="task">
-<input type="submit" value="Agregar Tarea">
+<input type="button" value="Enviar">
 
 </form>
 </body>
