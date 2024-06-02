@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\task;
+
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -12,7 +13,13 @@ class TaskController extends Controller
      */
     public function index()
     {
+<<<<<<< Updated upstream
         return view('task.index');
+=======
+        $task['tasks']= Task::all();
+
+        return view('task.index', $task);
+>>>>>>> Stashed changes
     }
 
     /**
@@ -29,7 +36,13 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         //
+<<<<<<< Updated upstream
         print_r($_POST);
+=======
+        $task= request()->all();
+        Task::create($task);
+       return  redirect('/');
+>>>>>>> Stashed changes
     }
 
     /**
@@ -59,8 +72,11 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(task $task)
+    public function destroy($id)
     {
         //
+        $task= Task::findOrfail($id);
+        $task->delete();
+        return redirect('/');
     }
 }
